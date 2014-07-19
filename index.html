@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="./seg.css">
+<link rel="stylesheet" href="./font-awesome-4.1.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" id="color" href="./highlight/styles/default.css">
+</head>
+<body id="blog">
+<div id="write">
+  <div class="row write-body" id="markdown" style="border: 2px solid rgb(54, 138, 37)">
+  </div>
+  <div class="row write-footer" style="display: flex;-webkit-justify-content: center;">
+    <a style="margin: 5px" href="https://github.com/yofine"><i class="fa fa-github fa-3x"></i></a>
+  </div>
+</div>
+
+<script src="bower_components/react/react.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script src="./highlight/highlight.pack.js"></script>
+
+<script src="bower_components/marked/lib/marked.js"></script>
+<script src="build/markdown.js"></script>
+<script>
+$(document).ready(function() {
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+      });
+    })
+</script>
+
+<script>
+function selectColor(theme) {
+  url = document.getElementById('color').href
+  a = url.split('/')
+  a.pop()
+  a.push(theme)
+  url = a.join('/')
+  document.getElementById('color').href = url
+}
+</script>
+</body>
+</html>
