@@ -8,6 +8,7 @@ module.exports = {
     app: [
       'webpack-hot-middleware/client',
       './src/index',
+      './src/styles/app.css',
     ],
     vendor: [
       'antd/dist/antd.min.css',
