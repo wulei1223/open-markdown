@@ -1,20 +1,25 @@
 import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
-class Dashboard extends Component {
+export default class Dashboard extends Component {
 
   constructor(props, context) {
     super(props, context)
+    this.state = {
+      height: document.documentElement.clientHeight - 50,
+    }
   }
 
-  componentWillMount() {
-
+  componentDidMount() {
+    window.onresize = () => {
+      this.setState({
+        height: document.documentElement.clientHeight - 50,
+      })
+    }
   }
 
   render() {
     const style = {
-      height: document.documentElement.clientHeight,
+      height: this.state.height,
       overflowY: 'auto',
       width: '100%',
       background: '#ECECEC',
@@ -27,13 +32,3 @@ class Dashboard extends Component {
     )
   }
 }
-
-const mapStateToProps = (state) => ({
-
-})
-
-const mapDispatchToProps = (dispatch) => ({
-
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
